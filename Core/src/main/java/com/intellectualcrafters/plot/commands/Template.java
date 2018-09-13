@@ -1,4 +1,6 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
+
+// TODO: what does this do?
 
 import com.intellectualcrafters.configuration.ConfigurationSection;
 import com.intellectualcrafters.configuration.InvalidConfigurationException;
@@ -17,7 +19,7 @@ import com.intellectualcrafters.plot.util.SetupUtils;
 import com.intellectualcrafters.plot.util.TaskManager;
 import com.intellectualcrafters.plot.util.WorldUtil;
 import com.intellectualcrafters.plot.util.block.GlobalBlockQueue;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,7 +36,8 @@ import java.util.zip.ZipOutputStream;
         description = "Create or use a world template",
         usage = "/plot template [import|export] <world> <template>",
         category = CommandCategory.ADMINISTRATION)
-public class Template extends SubCommand {
+public class Template extends SubCommand
+{
 
     public static boolean extractAllFiles(String world, String template) {
         try {

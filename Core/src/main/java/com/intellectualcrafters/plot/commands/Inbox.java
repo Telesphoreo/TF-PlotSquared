@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.google.common.base.Optional;
 import com.intellectualcrafters.plot.config.C;
@@ -10,7 +10,7 @@ import com.intellectualcrafters.plot.object.comment.PlotComment;
 import com.intellectualcrafters.plot.util.CommentManager;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.StringMan;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,8 @@ import java.util.List;
         permission = "plots.inbox",
         category = CommandCategory.CHAT,
         requiredType = RequiredType.NONE)
-public class Inbox extends SubCommand {
+public class Inbox extends SubCommand
+{
 
     public void displayComments(PlotPlayer player, List<PlotComment> oldComments, int page) {
         if (oldComments == null || oldComments.isEmpty()) {

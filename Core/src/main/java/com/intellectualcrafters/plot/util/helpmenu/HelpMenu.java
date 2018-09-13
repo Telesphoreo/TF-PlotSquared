@@ -1,7 +1,7 @@
 package com.intellectualcrafters.plot.util.helpmenu;
 
-import com.intellectualcrafters.plot.commands.CommandCategory;
-import com.intellectualcrafters.plot.commands.MainCommand;
+import main.java.com.intellectualcrafters.plot.commands.CommandCategory;
+import main.java.com.intellectualcrafters.plot.commands.MainCommand;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.plotsquared.general.commands.Command;
 

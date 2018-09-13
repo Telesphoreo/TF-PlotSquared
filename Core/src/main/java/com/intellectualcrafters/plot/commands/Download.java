@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.jnbt.CompoundTag;
 import com.intellectualcrafters.plot.PS;
@@ -14,9 +14,12 @@ import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.SchematicHandler;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.net.URL;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 @CommandDeclaration(usage = "/plot download [schematic|bo3|world]",
         command = "download",
@@ -25,10 +28,12 @@ import java.net.URL;
         requiredType = RequiredType.NONE,
         description = "Download your plot",
         permission = "plots.download")
-public class Download extends SubCommand {
+public class Download extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
+        Player bukkitPlayer = Bukkit.getPlayer(player.toString());
         String world = player.getLocation().getWorld();
         if (!PS.get().hasPlotArea(world)) {
             return !sendMessage(player, C.NOT_IN_PLOT_WORLD);
@@ -46,7 +51,7 @@ public class Download extends SubCommand {
             MainUtil.sendMessage(player, C.DONE_NOT_DONE);
             return false;
         }
-        if ((!plot.isOwner(player.getUUID())) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN.s())) {
+        if ((!plot.isOwner(player.getUUID())) && !Service.isSuperAdmin(bukkitPlayer)) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }

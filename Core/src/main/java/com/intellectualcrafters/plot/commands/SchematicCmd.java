@@ -1,4 +1,6 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
+
+// TODO: what does this do?
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -14,7 +16,7 @@ import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.SchematicHandler;
 import com.intellectualcrafters.plot.util.SchematicHandler.Schematic;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,7 +30,8 @@ import java.util.UUID;
         aliases = {"sch"},
         category = CommandCategory.SCHEMATIC,
         usage = "/plot schematic <arg...>")
-public class SchematicCmd extends SubCommand {
+public class SchematicCmd extends SubCommand
+{
 
     private boolean running = false;
 

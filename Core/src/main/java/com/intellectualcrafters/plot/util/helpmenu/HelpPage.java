@@ -1,6 +1,6 @@
 package com.intellectualcrafters.plot.util.helpmenu;
 
-import com.intellectualcrafters.plot.commands.CommandCategory;
+import main.java.com.intellectualcrafters.plot.commands.CommandCategory;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;

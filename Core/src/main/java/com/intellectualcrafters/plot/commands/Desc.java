@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.flag.FlagManager;
@@ -6,7 +6,7 @@ import com.intellectualcrafters.plot.flag.Flags;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(
         command = "setdescription",

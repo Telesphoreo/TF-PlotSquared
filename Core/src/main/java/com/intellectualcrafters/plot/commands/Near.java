@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+/*package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Plot;
@@ -7,7 +7,7 @@ import com.intellectualcrafters.plot.object.RunnableVal2;
 import com.intellectualcrafters.plot.object.RunnableVal3;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(command = "near",
         aliases = "n",
@@ -25,3 +25,5 @@ public class Near extends Command {
         C.PLOT_NEAR.send(player, StringMan.join(plot.getPlayersInPlot(), ", "));
     }
 }
+*/
+// Dont think we need this, and it will just interfere with TFM's vanish

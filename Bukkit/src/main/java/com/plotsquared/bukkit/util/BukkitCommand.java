@@ -1,6 +1,6 @@
 package com.plotsquared.bukkit.util;
 
-import com.intellectualcrafters.plot.commands.MainCommand;
+import main.java.com.intellectualcrafters.plot.commands.MainCommand;
 import com.intellectualcrafters.plot.object.ConsolePlayer;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.plotsquared.bukkit.commands.DebugUUID;

@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.flag.Flags;
@@ -9,7 +9,7 @@ import com.intellectualcrafters.plot.object.PlotInventory;
 import com.intellectualcrafters.plot.object.PlotItemStack;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(
         command = "music",
@@ -18,7 +18,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         usage = "/plot music",
         category = CommandCategory.APPEARANCE,
         requiredType = RequiredType.PLAYER)
-public class Music extends SubCommand {
+public class Music extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

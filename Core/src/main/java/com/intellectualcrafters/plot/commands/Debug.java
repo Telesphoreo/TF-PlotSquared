@@ -1,18 +1,19 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.StringMan;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(command = "debug",
         category = CommandCategory.DEBUG,
         description = "Show debug information",
         usage = "/plot debug [msg]",
         permission = "plots.admin")
-public class Debug extends SubCommand {
+public class Debug extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

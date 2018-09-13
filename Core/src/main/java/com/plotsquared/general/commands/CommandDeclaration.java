@@ -1,12 +1,12 @@
-package com.plotsquared.general.commands;
+package main.java.com.plotsquared.general.commands;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.intellectualcrafters.plot.commands.CommandCategory;
-import com.intellectualcrafters.plot.commands.RequiredType;
+import main.java.com.intellectualcrafters.plot.commands.CommandCategory;
+import main.java.com.intellectualcrafters.plot.commands.RequiredType;
 
 @Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

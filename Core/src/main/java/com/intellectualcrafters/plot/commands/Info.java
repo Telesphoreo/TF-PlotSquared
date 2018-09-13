@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.database.DBFunc;
@@ -9,7 +9,7 @@ import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.object.RunnableVal;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.expiry.ExpireManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.UUID;
 
@@ -18,7 +18,8 @@ import java.util.UUID;
         description = "Display plot info",
         usage = "/plot info <id>",
         category = CommandCategory.INFO)
-public class Info extends SubCommand {
+public class Info extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {

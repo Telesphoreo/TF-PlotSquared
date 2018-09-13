@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
@@ -13,9 +13,11 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(command = "merge",
         aliases = "m",
@@ -24,7 +26,8 @@ import java.util.UUID;
         category = CommandCategory.SETTINGS,
         requiredType = RequiredType.NONE,
         confirmation = true)
-public class Merge extends SubCommand {
+public class Merge extends SubCommand
+{
 
     public static final String[] values = new String[]{"north", "east", "south", "west", "auto"};
     public static final String[] aliases = new String[]{"n", "e", "s", "w", "all"};
@@ -64,7 +67,7 @@ public class Merge extends SubCommand {
         }
         UUID uuid = player.getUUID();
         if (!plot.isOwner(uuid)) {
-            if (!Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_MERGE)) {
+            if (!Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
                 MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
                 return false;
             } else {

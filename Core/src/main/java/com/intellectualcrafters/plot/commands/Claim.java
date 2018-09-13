@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
@@ -13,7 +13,7 @@ import com.intellectualcrafters.plot.util.ByteArrayUtilities;
 import com.intellectualcrafters.plot.util.EconHandler;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(command = "claim",
         aliases = "c",
@@ -21,7 +21,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         category = CommandCategory.CLAIMING,
         requiredType = RequiredType.NONE,
         permission = "plots.claim", usage = "/plot claim")
-public class Claim extends SubCommand {
+public class Claim extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {

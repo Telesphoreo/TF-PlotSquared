@@ -27,6 +27,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Pattern;
+import me.totalfreedom.plotsquared.Service;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -2230,13 +2231,11 @@ public class PlayerEvents extends PlotListener implements Listener {
         PlotPlayer pp = BukkitUtil.getPlayer(p);
         Plot plot = area.getPlot(location);
         if (plot == null) {
-            if (!Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_ROAD)) {
-                MainUtil.sendMessage(pp, C.NO_PERMISSION_EVENT, C.PERMISSION_ADMIN_INTERACT_ROAD);
+            if (!Service.isSuperAdmin(p)) {
                 event.setCancelled(true);
             }
         } else if (!plot.hasOwner()) {
-            if (!Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_UNOWNED)) {
-                MainUtil.sendMessage(pp, C.NO_PERMISSION_EVENT, C.PERMISSION_ADMIN_INTERACT_UNOWNED);
+            if (!Service.isSuperAdmin(p)) {
                 event.setCancelled(true);
             }
         } else if (!plot.isAdded(pp.getUUID())) {
@@ -2262,8 +2261,8 @@ public class PlayerEvents extends PlotListener implements Listener {
             if (entity instanceof ItemFrame && plot.getFlag(Flags.MISC_INTERACT, false)) {
                 return;
             }
-            if (!Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_OTHER)) {
-                MainUtil.sendMessage(pp, C.NO_PERMISSION_EVENT, C.PERMISSION_ADMIN_INTERACT_OTHER);
+            if (!Service.isSuperAdmin(p)) {
+                p.sendMessage(ChatColor.RED + "You may not interact with that plot");
                 event.setCancelled(true);
             }
         }

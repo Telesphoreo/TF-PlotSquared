@@ -1,10 +1,10 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.object.RunnableVal2;
 import com.intellectualcrafters.plot.object.RunnableVal3;
-import com.plotsquared.general.commands.Argument;
+import main.java.com.plotsquared.general.commands.Argument;
 import com.plotsquared.general.commands.Command;
 
 /**

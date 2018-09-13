@@ -1,10 +1,10 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Location;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 /**
  * @author manuelgu, altered by Citymonstret
@@ -16,7 +16,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         usage = "/plot middle",
         category = CommandCategory.TELEPORT,
         requiredType = RequiredType.NONE)
-public class Middle extends SubCommand {
+public class Middle extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] arguments) {

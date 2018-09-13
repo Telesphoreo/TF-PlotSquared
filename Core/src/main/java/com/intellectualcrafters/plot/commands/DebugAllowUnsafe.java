@@ -1,8 +1,8 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotPlayer;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,8 @@ import java.util.UUID;
         category = CommandCategory.DEBUG,
         requiredType = RequiredType.NONE,
         permission = "plots.debugallowunsafe")
-public class DebugAllowUnsafe extends SubCommand {
+public class DebugAllowUnsafe extends SubCommand
+{
 
     public static final List<UUID> unsafeAllowed = new ArrayList<>();
 

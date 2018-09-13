@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.database.DBFunc;
@@ -9,13 +9,15 @@ import com.intellectualcrafters.plot.util.EventUtil;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.Argument;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.Argument;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(
         command = "remove",
@@ -25,7 +27,8 @@ import java.util.UUID;
         category = CommandCategory.SETTINGS,
         requiredType = RequiredType.NONE,
         permission = "plots.remove")
-public class Remove extends SubCommand {
+public class Remove extends SubCommand
+{
 
     public Remove() {
         super(Argument.PlayerName);
@@ -42,7 +45,7 @@ public class Remove extends SubCommand {
             MainUtil.sendMessage(player, C.PLOT_UNOWNED);
             return false;
         }
-        if (!plot.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_REMOVE)) {
+        if (!plot.isOwner(player.getUUID()) && !Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return true;
         }

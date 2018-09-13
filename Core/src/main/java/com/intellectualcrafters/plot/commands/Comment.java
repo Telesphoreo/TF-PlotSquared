@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Location;
@@ -11,7 +11,7 @@ import com.intellectualcrafters.plot.util.CommentManager;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.Arrays;
 import java.util.Map.Entry;
@@ -22,7 +22,8 @@ import java.util.Map.Entry;
         category = CommandCategory.CHAT,
         requiredType = RequiredType.NONE,
         permission = "plots.comment")
-public class Comment extends SubCommand {
+public class Comment extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

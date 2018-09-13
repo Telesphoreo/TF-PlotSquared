@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Plot;
@@ -10,7 +10,7 @@ import com.intellectualcrafters.plot.object.RunnableVal3;
 import com.intellectualcrafters.plot.util.ChunkManager;
 import com.intellectualcrafters.plot.util.block.LocalBlockQueue;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.util.HashSet;
 
 @CommandDeclaration(command = "relight", description = "Relight your plot", category = CommandCategory.DEBUG)

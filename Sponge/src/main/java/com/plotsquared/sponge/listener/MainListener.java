@@ -320,7 +320,7 @@ public class MainListener {
         Plot plot = area.getPlot(loc);
         PlotPlayer pp = SpongeUtil.getPlayer(player);
         if (plot == null) {
-            if (!Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_ROAD, true)) {
+            if (!Service.isSuperAdmin(player)) {
                 event.setCancelled(true);
                 return;
             }

@@ -4,7 +4,7 @@ import com.intellectualcrafters.configuration.ConfigurationSection;
 import com.intellectualcrafters.configuration.file.YamlConfiguration;
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.util.StringMan;
-import com.plotsquared.general.commands.CommandCaller;
+import main.java.com.plotsquared.general.commands.CommandCaller;
 
 import java.io.File;
 import java.io.IOException;

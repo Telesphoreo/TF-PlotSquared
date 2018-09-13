@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -8,7 +8,7 @@ import com.intellectualcrafters.plot.util.HastebinUtility;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.TaskManager;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,8 @@ import java.io.IOException;
         description = "Upload settings.yml, worlds.yml, commands.yml and latest.log to www.hastebin.com",
         permission = "plots.debugpaste",
         category = CommandCategory.DEBUG)
-public class DebugPaste extends SubCommand {
+public class DebugPaste extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {

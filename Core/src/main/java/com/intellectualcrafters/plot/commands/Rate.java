@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -16,7 +16,7 @@ import com.intellectualcrafters.plot.util.MathMan;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.TaskManager;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,6 +24,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(command = "rate",
         permission = "plots.rate",
@@ -32,7 +34,8 @@ import java.util.UUID;
         aliases = "rt",
         category = CommandCategory.INFO,
         requiredType = RequiredType.NONE)
-public class Rate extends SubCommand {
+public class Rate extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
@@ -78,7 +81,7 @@ public class Rate extends SubCommand {
                     if (plot == null) {
                         return !sendMessage(player, C.NOT_IN_PLOT);
                     }
-                    if (!Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_RATE, true)) {
+                    if (!Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
                         return false;
                     }
                     plot.clearRatings();

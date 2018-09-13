@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.object.Plot;
@@ -9,7 +9,7 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.MathMan;
 import com.intellectualcrafters.plot.util.TaskManager;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +24,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
         description = "Condense a plotworld",
         category = CommandCategory.ADMINISTRATION,
         requiredType = RequiredType.CONSOLE)
-public class Condense extends SubCommand {
+public class Condense extends SubCommand
+{
 
     public static boolean TASK = false;
 

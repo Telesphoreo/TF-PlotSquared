@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Configuration;
@@ -17,7 +17,7 @@ import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.WorldUtil;
 import com.intellectualcrafters.plot.util.block.GlobalBlockQueue;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +31,8 @@ import java.util.HashSet;
         permission = "plots.set",
         category = CommandCategory.APPEARANCE,
         requiredType = RequiredType.NONE)
-public class Set extends SubCommand {
+public class Set extends SubCommand
+{
 
     public static final String[] values = new String[]{"biome", "alias", "home", "flag"};
     public static final String[] aliases = new String[]{"b", "w", "wf", "f", "a", "h", "fl"};

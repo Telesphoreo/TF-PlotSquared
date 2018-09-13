@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
@@ -12,7 +12,9 @@ import com.intellectualcrafters.plot.util.EconHandler;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(
         command = "delete",
@@ -23,7 +25,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         category = CommandCategory.CLAIMING,
         requiredType = RequiredType.NONE,
         confirmation = true)
-public class Delete extends SubCommand {
+public class Delete extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
@@ -36,7 +39,7 @@ public class Delete extends SubCommand {
         if (!plot.hasOwner()) {
             return !sendMessage(player, C.PLOT_UNOWNED);
         }
-        if (!plot.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_DELETE)) {
+        if (!plot.isOwner(player.getUUID()) && !Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
             return !sendMessage(player, C.NO_PLOT_PERMS);
         }
         final PlotArea plotArea = plot.getArea();

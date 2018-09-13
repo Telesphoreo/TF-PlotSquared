@@ -1,6 +1,6 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
-import com.plotsquared.general.commands.CommandCaller;
+import main.java.com.plotsquared.general.commands.CommandCaller;
 
 public enum RequiredType {
     CONSOLE, PLAYER, NONE;

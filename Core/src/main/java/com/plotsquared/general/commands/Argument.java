@@ -1,4 +1,4 @@
-package com.plotsquared.general.commands;
+package main.java.com.plotsquared.general.commands;
 
 import com.intellectualcrafters.plot.object.PlotId;
 

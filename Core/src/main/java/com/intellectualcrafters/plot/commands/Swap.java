@@ -1,12 +1,14 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Location;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.intellectualcrafters.plot.util.Permissions;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 @CommandDeclaration(usage = "/plot swap <X;Z>",
         command = "swap",
@@ -14,16 +16,18 @@ import com.plotsquared.general.commands.CommandDeclaration;
         aliases = {"switch"},
         category = CommandCategory.CLAIMING,
         requiredType = RequiredType.NONE)
-public class Swap extends SubCommand {
+public class Swap extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
+        Player bukkitPlayer = Bukkit.getPlayer(player.toString());
         Location loc = player.getLocation();
         Plot plot1 = loc.getPlotAbs();
         if (plot1 == null) {
             return !MainUtil.sendMessage(player, C.NOT_IN_PLOT);
         }
-        if (!plot1.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN.s())) {
+        if (!plot1.isOwner(player.getUUID())) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }

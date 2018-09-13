@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
@@ -9,10 +9,12 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.TaskManager;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.Set;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(
         command = "setowner",
@@ -42,7 +44,7 @@ public class Owner extends SetCommand {
         }
         if (uuid == null || value.equalsIgnoreCase("-")) {
             if (value.equalsIgnoreCase("none") || value.equalsIgnoreCase("null") || value.equalsIgnoreCase("-")) {
-                if (!Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_SETOWNER.s(), true)) {
+                if (!Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
                     return false;
                 }
                 Set<Plot> connected = plot.getConnectedPlots();

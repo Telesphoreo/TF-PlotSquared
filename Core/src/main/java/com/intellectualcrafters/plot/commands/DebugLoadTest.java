@@ -1,9 +1,9 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.database.DBFunc;
 import com.intellectualcrafters.plot.object.PlotPlayer;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(
         command = "debugloadtest",
@@ -12,7 +12,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         usage = "/plot debugloadtest",
         category = CommandCategory.DEBUG,
         requiredType = RequiredType.CONSOLE)
-public class DebugLoadTest extends SubCommand {
+public class DebugLoadTest extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Location;
@@ -9,7 +9,7 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(command = "unlink",
         aliases = {"u", "unmerge"},
@@ -18,7 +18,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         requiredType = RequiredType.NONE,
         category = CommandCategory.SETTINGS,
         confirmation = true)
-public class Unlink extends SubCommand {
+public class Unlink extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
@@ -31,7 +32,7 @@ public class Unlink extends SubCommand {
         if (!plot.hasOwner()) {
             return !sendMessage(player, C.PLOT_UNOWNED);
         }
-        if (!plot.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_UNLINK)) {
+        if (!plot.isOwner(player.getUUID())) {
             return sendMessage(player, C.NO_PLOT_PERMS);
         }
         if (!plot.isMerged()) {

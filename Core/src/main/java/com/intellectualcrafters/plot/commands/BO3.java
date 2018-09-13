@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Location;
@@ -7,7 +7,7 @@ import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.BO3Handler;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(command = "bo3",
         aliases = {"bo2"},
@@ -15,7 +15,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         permission = "plots.bo3",
         category = CommandCategory.SCHEMATIC,
         requiredType = RequiredType.NONE)
-public class BO3 extends SubCommand {
+public class BO3 extends SubCommand
+{
 
     public void noArgs(PlotPlayer player) {
         MainUtil.sendMessage(player, C.COMMAND_SYNTAX, "/plot bo3 export [category] [alias] [-r]");

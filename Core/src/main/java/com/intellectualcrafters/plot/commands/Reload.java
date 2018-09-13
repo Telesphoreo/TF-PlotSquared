@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.configuration.ConfigurationSection;
 import com.intellectualcrafters.configuration.MemorySection;
@@ -9,19 +9,28 @@ import com.intellectualcrafters.plot.object.PlotArea;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.object.RunnableVal;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.io.IOException;
 import java.util.Objects;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 
 @CommandDeclaration(command = "reload",
         permission = "plots.admin.command.reload",
         description = "Reload configurations",
         usage = "/plot reload",
         category = CommandCategory.ADMINISTRATION)
-public class Reload extends SubCommand {
+public class Reload extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {
+        if (!Service.isSuperAdmin(Bukkit.getPlayer(player.toString())))
+        {
+            player.sendMessage(ChatColor.RED + "You do not have permission to do this!");
+            return true;
+        }
         try {
             // The following won't affect world generation, as that has to be
             // loaded during startup unfortunately.

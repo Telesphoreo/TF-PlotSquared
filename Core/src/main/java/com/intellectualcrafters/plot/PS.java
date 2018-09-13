@@ -3,7 +3,7 @@ package com.intellectualcrafters.plot;
 import com.intellectualcrafters.configuration.ConfigurationSection;
 import com.intellectualcrafters.configuration.MemorySection;
 import com.intellectualcrafters.configuration.file.YamlConfiguration;
-import com.intellectualcrafters.plot.commands.WE_Anywhere;
+import main.java.com.intellectualcrafters.plot.commands.WE_Anywhere;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Configuration;
 import com.intellectualcrafters.plot.config.Settings;

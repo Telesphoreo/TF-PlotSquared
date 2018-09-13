@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -15,7 +15,7 @@ import com.intellectualcrafters.plot.util.EconHandler;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -27,7 +27,8 @@ import java.util.Set;
         description = "Claim the nearest plot",
         aliases = "a",
         usage = "/plot auto [length,width]")
-public class Auto extends SubCommand {
+public class Auto extends SubCommand
+{
 
     @Deprecated
     public static PlotId getNextPlotId(PlotId id, int step) {

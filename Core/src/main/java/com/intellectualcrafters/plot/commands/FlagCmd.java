@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.google.common.base.Optional;
 import com.intellectualcrafters.plot.PS;
@@ -10,7 +10,7 @@ import com.intellectualcrafters.plot.object.Location;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.*;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.*;
 
@@ -22,7 +22,8 @@ import java.util.*;
         category = CommandCategory.SETTINGS,
         requiredType = RequiredType.NONE,
         permission = "plots.flag")
-public class FlagCmd extends SubCommand {
+public class FlagCmd extends SubCommand
+{
 
     private boolean checkPermValue(PlotPlayer player, Flag flag, String key, String value) {
         key = key.toLowerCase();

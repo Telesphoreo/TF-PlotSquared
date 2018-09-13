@@ -22,6 +22,9 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 public abstract class EventUtil {
 
@@ -106,6 +109,8 @@ public abstract class EventUtil {
 
     public boolean checkPlayerBlockEvent(PlotPlayer player, PlayerBlockEventType type, Location location, LazyBlock block, boolean notifyPerms) {
         PlotArea area = PS.get().getPlotAreaAbs(location);
+        Player bukkitPlayer = Bukkit.getPlayer(player.toString());
+        Player bukkitPlayer1 = Bukkit.getPlayer(player.toString());
         Plot plot;
         if (area != null) {
             plot = area.getPlot(location);
@@ -127,10 +132,10 @@ public abstract class EventUtil {
                 return true;
             case BREAK_BLOCK:
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer);
                 }
                 Optional<HashSet<PlotBlock>> use = plot.getFlag(Flags.USE);
                 if (use.isPresent()) {
@@ -146,53 +151,53 @@ public abstract class EventUtil {
                         return true;
                     }
                 }
-                if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                if (Service.isSuperAdmin(bukkitPlayer)) {
                     return true;
                 }
                 return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_USE.s() + '/' + C.FLAG_BREAK.s()));
             case BREAK_HANGING:
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.HANGING_BREAK).or(false)) {
                     return true;
                 }
                 if (plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false) || !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_HANGING_BREAK.s()));
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
-                return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                return Service.isSuperAdmin(bukkitPlayer1);
             case BREAK_MISC:
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.MISC_BREAK).or(false)) {
                     return true;
                 }
                 if (plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false) || !(!notifyPerms || MainUtil
-                            .sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_MISC_BREAK.s()));
+                    return Service.isSuperAdmin(bukkitPlayer1);
+
                 }
-                return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                return Service.isSuperAdmin(bukkitPlayer1);
             case BREAK_VEHICLE:
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.VEHICLE_BREAK).or(false)) {
                     return true;
                 }
                 if (plot.hasOwner()) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_VEHICLE_BREAK.s()));
                 }
-                return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                return Service.isSuperAdmin(bukkitPlayer1);
             case INTERACT_BLOCK: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 Optional<HashSet<PlotBlock>> flagValue = plot.getFlag(Flags.USE);
                 HashSet<PlotBlock> value;
@@ -202,17 +207,17 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false) || !(!notifyPerms || MainUtil
-                            .sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_USE.s()));
+                    return Service.isSuperAdmin(bukkitPlayer1);
+
                 }
                 return true;
             }
             case PLACE_BLOCK: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_BUILD_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_BUILD_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 Optional<HashSet<PlotBlock>> flagValue = plot.getFlag(Flags.PLACE);
                 HashSet<PlotBlock> value;
@@ -222,7 +227,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_BUILD_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_PLACE.s()));
@@ -231,10 +236,10 @@ public abstract class EventUtil {
             }
             case TRIGGER_PHYSICAL: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), false);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), false);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.DEVICE_INTERACT).or(false)) {
                     return true;
@@ -247,7 +252,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return false;
@@ -256,10 +261,10 @@ public abstract class EventUtil {
             }
             case INTERACT_HANGING: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.HOSTILE_INTERACT).or(false)) {
                     return true;
@@ -272,7 +277,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_USE.s() + '/' + C.FLAG_HANGING_INTERACT.s()));
@@ -281,10 +286,10 @@ public abstract class EventUtil {
             }
             case INTERACT_MISC: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.MISC_INTERACT).or(false)) {
                     return true;
@@ -297,7 +302,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_USE.s() + '/' + C.FLAG_MISC_INTERACT.s()));
@@ -306,10 +311,10 @@ public abstract class EventUtil {
             }
             case INTERACT_VEHICLE: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.VEHICLE_USE).or(false)) {
                     return true;
@@ -322,7 +327,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_USE.s() + '/' + C.FLAG_VEHICLE_USE.s()));
@@ -331,10 +336,10 @@ public abstract class EventUtil {
             }
             case SPAWN_MOB: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.MOB_PLACE).or(false)) {
                     return true;
@@ -347,7 +352,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_MOB_PLACE.s() + '/' + C.FLAG_PLACE.s()));
@@ -358,10 +363,10 @@ public abstract class EventUtil {
                 return true;
             case PLACE_MISC: {
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.MISC_PLACE).or(false)) {
                     return true;
@@ -374,7 +379,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_MISC_PLACE.s() + '/' + C.FLAG_PLACE.s()));
@@ -384,10 +389,10 @@ public abstract class EventUtil {
             }
             case PLACE_VEHICLE:
                 if (plot == null) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_ROAD.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (!plot.hasOwner()) {
-                    return Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_UNOWNED.s(), notifyPerms);
+                    return Service.isSuperAdmin(bukkitPlayer1);
                 }
                 if (plot.getFlag(Flags.VEHICLE_PLACE).or(false)) {
                     return true;
@@ -400,7 +405,7 @@ public abstract class EventUtil {
                     value = null;
                 }
                 if (value == null || !value.contains(PlotBlock.EVERYTHING) && !value.contains(block.getPlotBlock())) {
-                    if (Permissions.hasPermission(player, C.PERMISSION_ADMIN_INTERACT_OTHER.s(), false)) {
+                    if (Service.isSuperAdmin(bukkitPlayer1)) {
                         return true;
                     }
                     return !(!notifyPerms || MainUtil.sendMessage(player, C.FLAG_TUTORIAL_USAGE, C.FLAG_VEHICLE_PLACE.s() + '/' + C.FLAG_PLACE.s()));

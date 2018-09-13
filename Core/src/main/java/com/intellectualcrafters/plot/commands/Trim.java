@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -16,7 +16,7 @@ import com.intellectualcrafters.plot.util.WorldUtil;
 import com.intellectualcrafters.plot.util.block.GlobalBlockQueue;
 import com.intellectualcrafters.plot.util.block.LocalBlockQueue;
 import com.intellectualcrafters.plot.util.expiry.ExpireManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +36,8 @@ import java.util.Set;
         usage = "/plot trim <world> [regenerate]",
         requiredType = RequiredType.CONSOLE,
         category = CommandCategory.ADMINISTRATION)
-public class Trim extends SubCommand {
+public class Trim extends SubCommand
+{
 
     public static ArrayList<Plot> expired = null;
     private static volatile boolean TASK = false;

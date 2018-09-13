@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -13,10 +13,12 @@ import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.SchematicHandler;
 import com.intellectualcrafters.plot.util.SchematicHandler.Schematic;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(
         command = "load",
@@ -26,7 +28,8 @@ import java.util.List;
         description = "Load your plot",
         permission = "plots.load",
         usage = "/plot restore")
-public class Load extends SubCommand {
+public class Load extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
@@ -42,7 +45,7 @@ public class Load extends SubCommand {
             MainUtil.sendMessage(player, C.PLOT_UNOWNED);
             return false;
         }
-        if (!plot.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_LOAD)) {
+        if (!plot.isOwner(player.getUUID()) && Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }

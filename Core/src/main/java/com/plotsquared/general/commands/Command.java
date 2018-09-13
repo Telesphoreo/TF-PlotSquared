@@ -2,9 +2,9 @@ package com.plotsquared.general.commands;
 
 import com.intellectualcrafters.configuration.file.YamlConfiguration;
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.CommandCategory;
-import com.intellectualcrafters.plot.commands.MainCommand;
-import com.intellectualcrafters.plot.commands.RequiredType;
+import main.java.com.intellectualcrafters.plot.commands.CommandCategory;
+import main.java.com.intellectualcrafters.plot.commands.MainCommand;
+import main.java.com.intellectualcrafters.plot.commands.RequiredType;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotMessage;
 import com.intellectualcrafters.plot.object.PlotPlayer;
@@ -30,6 +30,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import main.java.com.plotsquared.general.commands.Argument;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 public abstract class Command {
 

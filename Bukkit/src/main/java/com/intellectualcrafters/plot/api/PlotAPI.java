@@ -2,7 +2,7 @@ package com.intellectualcrafters.plot.api;
 
 import com.intellectualcrafters.configuration.file.YamlConfiguration;
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.SubCommand;
+import main.java.com.intellectualcrafters.plot.commands.SubCommand;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.flag.Flag;
 import com.intellectualcrafters.plot.flag.FlagManager;

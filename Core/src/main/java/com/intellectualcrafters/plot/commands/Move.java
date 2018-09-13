@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -7,8 +7,10 @@ import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotArea;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.intellectualcrafters.plot.util.Permissions;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 @CommandDeclaration(
         usage = "/plot move <X;Z>",
@@ -18,21 +20,28 @@ import com.plotsquared.general.commands.CommandDeclaration;
         permission = "plots.move",
         category = CommandCategory.CLAIMING,
         requiredType = RequiredType.NONE)
-public class Move extends SubCommand {
+public class Move extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
+        Player bukkitPlayer = Bukkit.getPlayer(player.toString());
         Location loc = player.getLocation();
         Plot plot1 = loc.getPlotAbs();
         if (plot1 == null) {
             return !MainUtil.sendMessage(player, C.NOT_IN_PLOT);
         }
-        if (!plot1.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN.s())) {
+        if (!plot1.isOwner(player.getUUID())) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }
         boolean override = false;
         if (args.length == 2 && args[1].equalsIgnoreCase("-f")) {
+            if (!Service.isSuperAdmin(bukkitPlayer))
+            {
+                override = false;
+                return true;
+            }
             args = new String[]{ args[0] };
             override = true;
         }
@@ -55,7 +64,7 @@ public class Move extends SubCommand {
             MainUtil.sendMessage(player, C.COMMAND_SYNTAX, "/plot copy <X;Z>");
             return false;
         }
-        if (!plot1.getArea().isCompatible(plot2.getArea()) && (!override || !Permissions.hasPermission(player, C.PERMISSION_ADMIN.s()))) {
+        if (!plot1.getArea().isCompatible(plot2.getArea()) && (!override || !Service.isSuperAdmin(bukkitPlayer))) {
             C.PLOTWORLD_INCOMPATIBLE.send(player);
             return false;
         }

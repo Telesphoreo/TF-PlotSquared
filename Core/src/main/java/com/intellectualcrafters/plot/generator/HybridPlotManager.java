@@ -1,7 +1,7 @@
 package com.intellectualcrafters.plot.generator;
 
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.Template;
+import main.java.com.intellectualcrafters.plot.commands.Template;
 import com.intellectualcrafters.plot.config.Settings;
 import com.intellectualcrafters.plot.object.FileBytes;
 import com.intellectualcrafters.plot.object.Location;

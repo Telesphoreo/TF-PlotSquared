@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.google.common.base.Optional;
 import com.intellectualcrafters.plot.PS;
@@ -19,7 +19,7 @@ import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.StringComparison;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +37,8 @@ import java.util.UUID;
         permission = "plots.list",
         category = CommandCategory.INFO,
         usage = "/plot list <forsale|mine|shared|world|top|all|unowned|unknown|player|world|done|fuzzy <search...>> [#]")
-public class ListCmd extends SubCommand {
+public class ListCmd extends SubCommand
+{
 
     private String[] getArgumentList(PlotPlayer player) {
         List<String> args = new ArrayList<>();

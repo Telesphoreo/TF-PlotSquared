@@ -1,4 +1,6 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
+
+// Block in TFM command blocker after first use
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -12,7 +14,7 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.SetupUtils;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +28,8 @@ import java.util.Map.Entry;
         usage = "/plot setup",
         aliases = {"create"},
         category = CommandCategory.ADMINISTRATION)
-public class Setup extends SubCommand {
+public class Setup extends SubCommand
+{
 
     public void displayGenerators(PlotPlayer player) {
         StringBuilder message = new StringBuilder();

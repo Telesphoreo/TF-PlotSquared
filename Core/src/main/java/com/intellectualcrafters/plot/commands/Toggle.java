@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.PlotArea;
@@ -7,7 +7,10 @@ import com.intellectualcrafters.plot.object.RunnableVal2;
 import com.intellectualcrafters.plot.object.RunnableVal3;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 
 @CommandDeclaration(
         command = "toggle",
@@ -21,7 +24,7 @@ public class Toggle extends Command {
         super(MainCommand.getInstance(), true);
     }
 
-    @CommandDeclaration(
+    /*@CommandDeclaration(
             command = "chatspy",
             aliases = {"spy"},
             permission = "plots.admin.command.chat",
@@ -33,7 +36,7 @@ public class Toggle extends Command {
         } else {
             MainUtil.sendMessage(player, C.TOGGLE_ENABLED, command.toString());
         }
-    }
+    }*/
 
     @CommandDeclaration(
             command = "worldedit",
@@ -42,6 +45,11 @@ public class Toggle extends Command {
             description = "Toggle worldedit area restrictions")
     public void worldedit(Command command, PlotPlayer player, String[] args, RunnableVal3<Command, Runnable, Runnable> confirm,
             RunnableVal2<Command, CommandResult> whenDone) {
+        if (!Service.isSuperAdmin(Bukkit.getPlayer(player.toString())))
+        {
+            player.sendMessage(ChatColor.RED + "You do not have permission to toggle this");
+            return;
+        }
         if (toggle(player, "worldedit")) {
             MainUtil.sendMessage(player, C.TOGGLE_DISABLED, command.toString());
         } else {
@@ -49,7 +57,7 @@ public class Toggle extends Command {
         }
     }
 
-    @CommandDeclaration(
+    /*@CommandDeclaration(
             command = "chat",
             permission = "plots.toggle.chat",
             description = "Toggle plot chat")
@@ -60,7 +68,7 @@ public class Toggle extends Command {
         } else {
             MainUtil.sendMessage(player, C.TOGGLE_ENABLED, command.toString());
         }
-    }
+    }*/
 
     @CommandDeclaration(
             command = "clear-confirmation",

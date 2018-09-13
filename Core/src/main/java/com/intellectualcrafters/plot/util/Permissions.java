@@ -3,7 +3,7 @@ package com.intellectualcrafters.plot.util;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
 import com.intellectualcrafters.plot.object.PlotPlayer;
-import com.plotsquared.general.commands.CommandCaller;
+import main.java.com.plotsquared.general.commands.CommandCaller;
 
 import java.util.HashMap;
 

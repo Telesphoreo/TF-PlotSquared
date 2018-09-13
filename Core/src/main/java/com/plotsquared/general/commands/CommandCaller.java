@@ -1,6 +1,6 @@
-package com.plotsquared.general.commands;
+package main.java.com.plotsquared.general.commands;
 
-import com.intellectualcrafters.plot.commands.RequiredType;
+import main.java.com.intellectualcrafters.plot.commands.RequiredType;
 
 public interface CommandCaller {
 

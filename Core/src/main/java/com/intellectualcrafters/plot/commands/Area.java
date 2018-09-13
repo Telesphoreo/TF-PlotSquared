@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.configuration.ConfigurationSection;
 import com.intellectualcrafters.plot.PS;
@@ -24,7 +24,7 @@ import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.SetupUtils;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -38,7 +38,8 @@ import java.util.Set;
         aliases = "world",
         usage = "/plot area <create|info|list|tp|regen>",
         confirmation = true)
-public class Area extends SubCommand {
+public class Area extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {

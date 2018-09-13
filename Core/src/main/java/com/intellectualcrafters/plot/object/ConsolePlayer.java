@@ -1,7 +1,7 @@
 package com.intellectualcrafters.plot.object;
 
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.RequiredType;
+import main.java.com.intellectualcrafters.plot.commands.RequiredType;
 import com.intellectualcrafters.plot.database.DBFunc;
 import com.intellectualcrafters.plot.util.PlotGameMode;
 import com.intellectualcrafters.plot.util.PlotWeather;

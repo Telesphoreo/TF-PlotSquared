@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
@@ -12,7 +12,10 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.block.GlobalBlockQueue;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 @CommandDeclaration(command = "clear",
         description = "Clear a plot",
@@ -32,9 +35,10 @@ public class Clear extends Command {
 
     @Override
     public void execute(final PlotPlayer player, String[] args, RunnableVal3<Command, Runnable, Runnable> confirm, RunnableVal2<Command, CommandResult> whenDone) throws CommandException {
+        Player bukkitPlayer = Bukkit.getPlayer(player.toString());
         checkTrue(args.length == 0, C.COMMAND_SYNTAX, getUsage());
         final Plot plot = check(player.getCurrentPlot(), C.NOT_IN_PLOT);
-        checkTrue(plot.isOwner(player.getUUID()) || Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_CLEAR), C.NO_PLOT_PERMS);
+        checkTrue(plot.isOwner(player.getUUID()) || Service.isSuperAdmin(bukkitPlayer), C.NO_PLOT_PERMS);
         checkTrue(plot.getRunning() == 0, C.WAIT_FOR_TIMER);
         checkTrue(!Settings.Done.RESTRICT_BUILDING || !Flags.DONE.isSet(plot) || Permissions.hasPermission(player, C.PERMISSION_CONTINUE), C.DONE_ALREADY_DONE);
         confirm.run(this, new Runnable() {

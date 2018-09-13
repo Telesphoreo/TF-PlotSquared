@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.jnbt.CompoundTag;
 import com.intellectualcrafters.plot.PS;
@@ -12,7 +12,7 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.SchematicHandler;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.net.URL;
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +23,8 @@ import java.util.UUID;
         category = CommandCategory.SCHEMATIC,
         requiredType = RequiredType.NONE,
         permission = "plots.save")
-public class Save extends SubCommand {
+public class Save extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
@@ -39,7 +40,7 @@ public class Save extends SubCommand {
             MainUtil.sendMessage(player, C.PLOT_UNOWNED);
             return false;
         }
-        if (!plot.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_SAVE)) {
+        if (!plot.isOwner(player.getUUID())) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }

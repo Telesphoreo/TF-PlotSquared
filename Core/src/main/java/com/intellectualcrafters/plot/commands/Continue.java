@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
@@ -7,7 +7,7 @@ import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(
         command = "continue",
@@ -15,7 +15,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         permission = "plots.continue",
         category = CommandCategory.SETTINGS,
         requiredType = RequiredType.NONE)
-public class Continue extends SubCommand {
+public class Continue extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

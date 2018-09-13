@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.database.DBFunc;
@@ -12,7 +12,7 @@ import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.object.worlds.SinglePlotArea;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.TaskManager;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,7 +29,8 @@ import java.util.Map.Entry;
         description = "Convert/Backup Storage",
         requiredType = RequiredType.CONSOLE,
         usage = "/plot database [area] <sqlite|mysql|import>")
-public class Database extends SubCommand {
+public class Database extends SubCommand
+{
 
     public static void insertPlots(final SQLManager manager, final List<Plot> plots, final PlotPlayer player) {
         TaskManager.runTaskAsync(new Runnable() {

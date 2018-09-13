@@ -2,7 +2,7 @@ package com.plotsquared.sponge.util;
 
 import com.google.common.collect.ImmutableList;
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.MainCommand;
+import main.java.com.intellectualcrafters.plot.commands.commands.MainCommand;
 import com.intellectualcrafters.plot.object.ConsolePlayer;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.TaskManager;

@@ -1,12 +1,14 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.object.Location;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.intellectualcrafters.plot.util.Permissions;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 @CommandDeclaration(
         command = "copy",
@@ -16,16 +18,18 @@ import com.plotsquared.general.commands.CommandDeclaration;
         description = "Copy a plot",
         usage = "/plot copy <X;Z>",
         requiredType = RequiredType.NONE)
-public class Copy extends SubCommand {
+public class Copy extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
+        Player bukkitPlayer = Bukkit.getPlayer(player.toString());
         Location loc = player.getLocation();
         Plot plot1 = loc.getPlotAbs();
         if (plot1 == null) {
             return !MainUtil.sendMessage(player, C.NOT_IN_PLOT);
         }
-        if (!plot1.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN.s())) {
+        if (!plot1.isOwner(player.getUUID()) && !Service.isSuperAdmin(bukkitPlayer)) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }

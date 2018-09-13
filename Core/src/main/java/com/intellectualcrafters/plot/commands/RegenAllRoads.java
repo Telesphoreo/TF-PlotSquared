@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+/*package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -10,7 +10,7 @@ import com.intellectualcrafters.plot.object.PlotManager;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.ChunkManager;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.util.Set;
 
 @CommandDeclaration(
@@ -21,7 +21,8 @@ import java.util.Set;
         category = CommandCategory.ADMINISTRATION,
         requiredType = RequiredType.CONSOLE,
         permission = "plots.regenallroads")
-public class RegenAllRoads extends SubCommand {
+public class RegenAllRoads extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {
@@ -62,3 +63,4 @@ public class RegenAllRoads extends SubCommand {
         return true;
     }
 }
+*/

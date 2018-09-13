@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -10,12 +10,14 @@ import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.UUIDHandler;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.Argument;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.Argument;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(command = "kick",
         aliases = {"k"},
@@ -24,7 +26,8 @@ import java.util.UUID;
         usage = "<player>",
         category = CommandCategory.TELEPORT,
         requiredType = RequiredType.NONE)
-public class Kick extends SubCommand {
+public class Kick extends SubCommand
+{
 
     public Kick() {
         super(Argument.PlayerName);
@@ -37,7 +40,7 @@ public class Kick extends SubCommand {
         if (plot == null) {
             return !sendMessage(player, C.NOT_IN_PLOT);
         }
-        if ((!plot.hasOwner() || !plot.isOwner(player.getUUID())) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_KICK)) {
+        if ((!plot.hasOwner() || !plot.isOwner(player.getUUID())) && Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return false;
         }
@@ -50,7 +53,7 @@ public class Kick extends SubCommand {
         for (UUID uuid : uuids) {
             if (uuid == DBFunc.everyone) {
                 for (PlotPlayer pp : plot.getPlayersInPlot()) {
-                    if (pp == player || Permissions.hasPermission(pp, C.PERMISSION_ADMIN_ENTRY_DENIED)) {
+                    if (pp == player || Service.isSuperAdmin(Bukkit.getPlayer(pp.toString()))) {
                         continue;
                     }
                     players.add(pp);
@@ -72,7 +75,7 @@ public class Kick extends SubCommand {
                 MainUtil.sendMessage(player, C.INVALID_PLAYER, args[0]);
                 return false;
             }
-            if (player2.hasPermission("plots.admin.entry.denied")) {
+            if (Service.isSuperAdmin(Bukkit.getPlayer(player2.toString()))) {
                 C.CANNOT_KICK_PLAYER.send(player, player2.getName());
                 return false;
             }

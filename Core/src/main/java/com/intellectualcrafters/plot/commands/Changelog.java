@@ -1,10 +1,10 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.Updater;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
@@ -17,7 +17,8 @@ import java.util.Scanner;
         requiredType = RequiredType.NONE,
         aliases = {"cl"},
         category = CommandCategory.ADMINISTRATION)
-public class Changelog extends SubCommand {
+public class Changelog extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

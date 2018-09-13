@@ -1,6 +1,6 @@
 package com.intellectualcrafters.plot.object;
 
-import com.intellectualcrafters.plot.commands.Template;
+import main.java.com.intellectualcrafters.plot.commands.Template;
 import com.intellectualcrafters.plot.config.Settings;
 
 import java.io.IOException;

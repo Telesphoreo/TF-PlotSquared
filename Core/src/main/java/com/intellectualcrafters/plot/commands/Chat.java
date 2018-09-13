@@ -1,7 +1,7 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.object.PlotPlayer;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 @CommandDeclaration(
         command = "chat",
@@ -10,7 +10,8 @@ import com.plotsquared.general.commands.CommandDeclaration;
         permission = "plots.chat",
         category = CommandCategory.CHAT,
         requiredType = RequiredType.NONE)
-public class Chat extends SubCommand {
+public class Chat extends SubCommand
+{
 
     @Override
     public boolean onCommand(PlotPlayer player, String[] args) {

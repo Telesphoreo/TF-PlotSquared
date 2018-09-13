@@ -1,11 +1,11 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.database.DBFunc;
 import com.intellectualcrafters.plot.object.Plot;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.MainUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,8 @@ import java.util.ArrayList;
         requiredType = RequiredType.CONSOLE,
         usage = "/plot debugsavetest",
         description = "This command will force the recreation of all plots in the DB")
-public class DebugSaveTest extends SubCommand {
+public class DebugSaveTest extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {

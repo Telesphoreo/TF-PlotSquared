@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -12,12 +12,14 @@ import com.intellectualcrafters.plot.util.Permissions;
 import com.intellectualcrafters.plot.util.PlotGameMode;
 import com.intellectualcrafters.plot.util.UUIDHandler;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.Argument;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.Argument;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(command = "deny",
         aliases = {"d", "ban"},
@@ -25,7 +27,8 @@ import java.util.UUID;
         usage = "/plot deny <player>",
         category = CommandCategory.SETTINGS,
         requiredType = RequiredType.NONE)
-public class Deny extends SubCommand {
+public class Deny extends SubCommand
+{
 
     public Deny() {
         super(Argument.PlayerName);
@@ -43,7 +46,7 @@ public class Deny extends SubCommand {
             MainUtil.sendMessage(player, C.PLOT_UNOWNED);
             return false;
         }
-        if (!plot.isOwner(player.getUUID()) && !Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_DENY)) {
+        if (!plot.isOwner(player.getUUID()) && Service.isSuperAdmin(Bukkit.getPlayer(player.toString()))) {
             MainUtil.sendMessage(player, C.NO_PLOT_PERMS);
             return true;
         }

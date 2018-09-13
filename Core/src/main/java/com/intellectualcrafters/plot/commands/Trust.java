@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.database.DBFunc;
@@ -10,11 +10,13 @@ import com.intellectualcrafters.plot.util.EventUtil;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.Permissions;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.Iterator;
 import java.util.Set;
 import java.util.UUID;
+import me.totalfreedom.plotsquared.Service;
+import org.bukkit.Bukkit;
 
 @CommandDeclaration(
         command = "trust",
@@ -33,7 +35,7 @@ public class Trust extends Command {
     public void execute(final PlotPlayer player, String[] args, RunnableVal3<Command, Runnable, Runnable> confirm, RunnableVal2<Command, CommandResult> whenDone) throws CommandException {
         final Plot plot = check(player.getCurrentPlot(), C.NOT_IN_PLOT);
         checkTrue(plot.hasOwner(), C.PLOT_UNOWNED);
-        checkTrue(plot.isOwner(player.getUUID()) || Permissions.hasPermission(player, C.PERMISSION_ADMIN_COMMAND_TRUST), C.NO_PLOT_PERMS);
+        checkTrue(plot.isOwner(player.getUUID()) || Service.isSuperAdmin(Bukkit.getPlayer(player.toString())), C.NO_PLOT_PERMS);
         checkTrue(args.length == 1, C.COMMAND_SYNTAX, getUsage());
         final Set<UUID> uuids = MainUtil.getUUIDsFromString(args[0]);
         checkTrue(!uuids.isEmpty(), C.INVALID_PLAYER, args[0]);

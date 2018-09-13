@@ -2,7 +2,7 @@ package com.intellectualcrafters.plot.util.helpmenu;
 
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.util.StringMan;
-import com.plotsquared.general.commands.Argument;
+import main.java.com.plotsquared.general.commands.Argument;
 import com.plotsquared.general.commands.Command;
 
 public class HelpObject {

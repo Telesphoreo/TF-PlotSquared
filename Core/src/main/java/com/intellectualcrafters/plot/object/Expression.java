@@ -1,8 +1,8 @@
 package com.intellectualcrafters.plot.object;
 
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.DebugExec;
-import com.intellectualcrafters.plot.commands.MainCommand;
+import main.java.com.intellectualcrafters.plot.commands.DebugExec;
+import main.java.com.intellectualcrafters.plot.commands.MainCommand;
 import javax.script.ScriptException;
 
 public abstract class Expression<T> {

@@ -1,7 +1,7 @@
 package com.intellectualcrafters.plot.object;
 
 import com.intellectualcrafters.plot.PS;
-import com.intellectualcrafters.plot.commands.RequiredType;
+import main.java.com.intellectualcrafters.plot.commands.RequiredType;
 import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Settings;
 import com.intellectualcrafters.plot.database.DBFunc;
@@ -11,7 +11,7 @@ import com.intellectualcrafters.plot.object.worlds.SinglePlotArea;
 import com.intellectualcrafters.plot.object.worlds.SinglePlotAreaManager;
 import com.intellectualcrafters.plot.util.*;
 import com.intellectualcrafters.plot.util.expiry.ExpireManager;
-import com.plotsquared.general.commands.CommandCaller;
+import main.java.com.plotsquared.general.commands.CommandCaller;
 import java.nio.ByteBuffer;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

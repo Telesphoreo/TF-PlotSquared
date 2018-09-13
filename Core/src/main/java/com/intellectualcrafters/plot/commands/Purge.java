@@ -1,4 +1,5 @@
-package com.intellectualcrafters.plot.commands;
+// Can re enable if people want
+/*package main.java.com.intellectualcrafters.plot.commands;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
@@ -10,7 +11,7 @@ import com.intellectualcrafters.plot.object.PlotPlayer;
 import com.intellectualcrafters.plot.util.CmdConfirm;
 import com.intellectualcrafters.plot.util.StringMan;
 import com.intellectualcrafters.plot.util.UUIDHandler;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import com.plotsquared.listener.PlotListener;
 
 import java.util.HashMap;
@@ -26,7 +27,8 @@ import java.util.UUID;
         category = CommandCategory.ADMINISTRATION,
         requiredType = RequiredType.CONSOLE,
         confirmation = true)
-public class Purge extends SubCommand {
+public class Purge extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {
@@ -173,3 +175,4 @@ public class Purge extends SubCommand {
         return true;
     }
 }
+*/

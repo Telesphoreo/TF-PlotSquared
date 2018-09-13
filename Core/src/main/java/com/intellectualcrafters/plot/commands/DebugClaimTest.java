@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.google.common.collect.BiMap;
 import com.intellectualcrafters.plot.PS;
@@ -16,7 +16,7 @@ import com.intellectualcrafters.plot.util.ChunkManager;
 import com.intellectualcrafters.plot.util.MainUtil;
 import com.intellectualcrafters.plot.util.UUIDHandler;
 import com.intellectualcrafters.plot.util.WorldUtil;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -29,7 +29,8 @@ import java.util.UUID;
         category = CommandCategory.DEBUG,
         requiredType = RequiredType.CONSOLE,
         permission = "plots.debugclaimtest")
-public class DebugClaimTest extends SubCommand {
+public class DebugClaimTest extends SubCommand
+{
 
     @Override
     public boolean onCommand(final PlotPlayer player, String[] args) {

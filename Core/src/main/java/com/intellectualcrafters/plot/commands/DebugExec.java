@@ -1,4 +1,4 @@
-package com.intellectualcrafters.plot.commands;
+package main.java.com.intellectualcrafters.plot.commands;
 
 import com.google.common.io.Files;
 import com.intellectualcrafters.plot.PS;
@@ -36,7 +36,7 @@ import com.intellectualcrafters.plot.util.block.GlobalBlockQueue;
 import com.intellectualcrafters.plot.util.expiry.ExpireManager;
 import com.intellectualcrafters.plot.util.expiry.PlotAnalysis;
 import com.plotsquared.general.commands.Command;
-import com.plotsquared.general.commands.CommandDeclaration;
+import main.java.com.plotsquared.general.commands.CommandDeclaration;
 import com.plotsquared.listener.WEManager;
 import java.io.File;
 import java.io.IOException;
@@ -59,7 +59,8 @@ import javax.script.SimpleScriptContext;
         description = "Mutli-purpose debug command",
         aliases = {"exec", "$"},
         category = CommandCategory.DEBUG)
-public class DebugExec extends SubCommand {
+public class DebugExec extends SubCommand
+{
     private ScriptEngine engine;
     private Bindings scope;
 
